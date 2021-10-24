@@ -292,67 +292,97 @@ void matrixCalculator(int input){
 			printf("What matrix would you like to fill with a number?\n");
 			do{
 				printf("Matrix A (0), B (1) or C (2)? ");
+				scanf("%d", &d);
+			}while(d < 0 || d > 2);
+			printf("Where would you like to store the resulting matrix?\n");
+			do{
+				printf("Matrix A (0), B (1) or C (2)? ");
 				scanf("%d", &s);
 			}while(s < 0 || s > 2);
 			printf("With which number would you like to fill matrix %s?\n",
-				(s==0)?"A":(s==1)?"B":"C");
+				(d==0)?"A":(d==1)?"B":"C");
 			scanf("%f", &n);
-			matrices[s] = fillN(matrices[s], n);
+			matrices[s] = fillN(matrices[d], n);
 			break;
 		case ADD_N:
 			printf("What matrix would you like to add a number to?\n");
 			do{
 				printf("Matrix A (0), B (1) or C (2)? ");
+				scanf("%d", &d);
+			}while(d < 0 || d > 2);
+			printf("Where would you like to store the resulting matrix?\n");
+			do{
+				printf("Matrix A (0), B (1) or C (2)? ");
 				scanf("%d", &s);
 			}while(s < 0 || s > 2);
 			printf("With which number would you like to add to matrix %s?\n",
-				(s==0)?"A":(s==1)?"B":"C");
+				(d==0)?"A":(d==1)?"B":"C");
 			scanf("%f", &n);
-			matrices[s] = addN(matrices[s], n);
+			matrices[s] = addN(matrices[d], n);
 			break;
 		case SUBSTRACT_N:
 			printf("What matrix would you like to substract a number from?\n");
 			do{
 				printf("Matrix A (0), B (1) or C (2)? ");
+				scanf("%d", &d);
+			}while(d < 0 || d > 2);
+			printf("Where would you like to store the resulting matrix?\n");
+			do{
+				printf("Matrix A (0), B (1) or C (2)? ");
 				scanf("%d", &s);
 			}while(s < 0 || s > 2);
 			printf("With which number would you like to substract from matrix %s?\n",
-				(s==0)?"A":(s==1)?"B":"C");
+				(d==0)?"A":(d==1)?"B":"C");
 			scanf("%f", &n);
-			matrices[s] = substractN(matrices[s], n);
+			matrices[s] = substractN(matrices[d], n);
 			break;
 		case MULTIPLY_N:
 			printf("What matrix would you like to multiply by a number?\n");
 			do{
 				printf("Matrix A (0), B (1) or C (2)? ");
+				scanf("%d", &d);
+			}while(d < 0 || d > 2);
+			printf("Where would you like to store the resulting matrix?\n");
+			do{
+				printf("Matrix A (0), B (1) or C (2)? ");
 				scanf("%d", &s);
 			}while(s < 0 || s > 2);
 			printf("With which number would you like to multiply matrix %s by?\n",
-				(s==0)?"A":(s==1)?"B":"C");
+				(d==0)?"A":(d==1)?"B":"C");
 			scanf("%f", &n);
-			matrices[s] = multiplyByN(matrices[s], n);
+			matrices[s] = multiplyByN(matrices[d], n);
 			break;
 		case DIVIDE_N:
-			printf("What matrix would you like to fill divide by a number?\n");
+			printf("What matrix would you like to fill with a number?\n");
+			do{
+				printf("Matrix A (0), B (1) or C (2)? ");
+				scanf("%d", &d);
+			}while(d < 0 || d > 2);
+			printf("Where would you like to store the resulting matrix?\n");
 			do{
 				printf("Matrix A (0), B (1) or C (2)? ");
 				scanf("%d", &s);
 			}while(s < 0 || s > 2);
 			printf("With which number would you like to divide matrix %s by?\n",
-				(s==0)?"A":(s==1)?"B":"C");
+				(d==0)?"A":(d==1)?"B":"C");
 			scanf("%f", &n);
-			matrices[s] = divideByN(matrices[s], n);
+			matrices[s] = divideByN(matrices[d], n);
 			break;
 		case RAISE_TO_N:
 			printf("What matrix would you like to raise to the power of a number?\n");
 			do{
 				printf("Matrix A (0), B (1) or C (2)? ");
+				scanf("%d", &d);
+			}while(d < 0 || d > 2);
+			printf("Where would you like to store the resulting matrix?\n");
+			do{
+				printf("Matrix A (0), B (1) or C (2)? ");
 				scanf("%d", &s);
 			}while(s < 0 || s > 2);
 			printf("With which number would you like to raise matrix %s to?\n",
-				(s==0)?"A":(s==1)?"B":"C");
+				(d==0)?"A":(d==1)?"B":"C");
 			scanf("%f", &n);
-			matrices[s] = raiseMatrixToN(matrices[s], n);
+			matrices[s] = raiseMatrixToN(matrices[d], n);
 			break;
 
 		case ADD_M:

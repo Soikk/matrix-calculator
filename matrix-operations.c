@@ -21,6 +21,7 @@ matrix_t matrixError(error_t error){
 	}
 	return createMatrix(0, 0);
 }
+
 // Creates a rows x columns matrix;
 matrix_t createMatrix(size_t rows, size_t columns){
 	matrix_t newmatrix;
@@ -155,8 +156,11 @@ matrix_t divideMatrices(matrix_t a, matrix_t b){
 matrix_t raiseMatrixToN(matrix_t m, int n){
 	if(!isSquare(m))
 		return matrixError(NOT_SQUARE);
-	// TODO: only accepts positive values of n
 	matrix_t raisedmatrix = identityMatrix(m.rows);
+	if(n < 0){
+		m = inverse(m);
+		n = -n;
+	}
 	for(int i = 0; i < n; ++i)
 		raisedmatrix = multiplyMatrices(raisedmatrix, m);
 	return raisedmatrix;
@@ -164,6 +168,7 @@ matrix_t raiseMatrixToN(matrix_t m, int n){
 
 // Creates a submatrix from "matrix" without the column "column" and row "row" of "matrix"
 matrix_t createSubmatrix(matrix_t m, size_t row, size_t column){
+	// TODO: not remove any
 	int mod = m.rows, nmod = mod-1, sr = 0, sc = 0;
 	matrix_t submatrix = createMatrix(nmod, nmod);
 	for(size_t r = 0; r < mod; ++r){
@@ -239,5 +244,5 @@ matrix_t inverse(matrix_t m){
 	int det = determinant(m);
 	if(det == 0)
 		return matrixError(ZERO_DET);
-	return multiplyByN(adjugate(m), (float)1/det);
+	return divideByN(adjugate(m), det);
 }
